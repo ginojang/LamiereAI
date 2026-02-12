@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{39F03C2D-DF2F-0F95-BDD2-849571577907}</ProjectGuid>
+    <ProjectGuid>{E25804E1-751C-87D6-9698-80FAA83E3974}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -68,9 +68,9 @@
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\DataManager.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UIVirtualButton.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UIVirtualJoystick.cs" />
+    <Compile Include="Assets\Scenes\_MMOCore\BaseSceneEnvrionment.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\ThirdPersonController.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\CharacterPrefab.cs" />
-    <Compile Include="Assets\Scenes\SampleSceneAssets\SampleSceneEnvrionment.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\NPCPrefab.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\MyCharacterCore.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvasControllerInput.cs" />
