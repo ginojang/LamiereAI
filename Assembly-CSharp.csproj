@@ -77,6 +77,11 @@
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UIVirtualTouchZone.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Props Snow.shader" />
+    <None Include="Assets\3rd-Party\NatureManufacture Assets\Foliage Shaders\NM_Foliage_VSPro_Indirect.cginc" />
+    <None Include="Assets\3rd-Party\NatureManufacture Assets\Foliage Shaders\NM_Foliage.shader" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.3.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
       <Private>False</Private>
