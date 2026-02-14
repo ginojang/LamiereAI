@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: lava_mat
+  m_Shader: {fileID: 4800000, guid: d30804de794ee7640891b19175c410b1, type: 3}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _NOISESWITCH_ON _TEXTURE2SWITCH_ON
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTexture:
+        m_Texture: {fileID: 2800000, guid: ba7be0dea36bf6042a4489e77d53f454, type: 3}
+        m_Scale: {x: 33, y: 33}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTexture1:
+        m_Texture: {fileID: 2800000, guid: 8c23b91ef28e7044ea23308296eff932, type: 3}
+        m_Scale: {x: 3, y: 3}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTexture2:
+        m_Texture: {fileID: 2800000, guid: 8c23b91ef28e7044ea23308296eff932, type: 3}
+        m_Scale: {x: 4, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture1:
+        m_Texture: {fileID: 2800000, guid: 8c23b91ef28e7044ea23308296eff932, type: 3}
+        m_Scale: {x: 30, y: 30}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2:
+        m_Texture: {fileID: 2800000, guid: 134b715dff1da844fb54d1ee2dcfd288, type: 3}
+        m_Scale: {x: 28, y: 28}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample2:
+        m_Texture: {fileID: 2800000, guid: cd460ee4ac5c1e746b7a734cc7cc64dd, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 10
+    - _Float0: -0.1
+    - _Float1: 0.1
+    - _Float2: 0.003
+    - _Float3: 0.001
+    - _Float4: 0.3
+    - _Float5: 0.05
+    - _Float6: 0.05
+    - _Float7: -0.3
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 3
+    - _NoicePower1: 0.05
+    - _NoicePower2: 0.05
+    - _NoiseOffset1: 0.3
+    - _NoiseOffset2: -0.3
+    - _NoisePower1: 0.05
+    - _NoisePower2: 0.05
+    - _NoiseRotSpeed: 0.3
+    - _NoiseSwitch: 1
+    - _Normal1Noise: 0.1
+    - _Normal1Power: 1
+    - _Normal2Noize: 0.005
+    - _Normal2Power: 1
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _RotSpeed1: 0.05
+    - _RotSpeed2: -0.05
+    - _Smoothness: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Texture2Switch: 1
+    - _ToggleSwitch0: 0
+    - _ToggleSwitch2: 0
+    - _ToggleSwitch3: 0
+    - _UVSec: 0
+    - _U_Speed1: -0.01
+    - _U_Speed2: 0.02
+    - _V_Speed1: 0.02
+    - _V_Speed2: -0.01
+    - _ZWrite: 0
+    - __dirty: 0
+    m_Colors:
+    - _AddColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.182, b: 0, a: 1}
+    - _Color0: {r: 0.29411763, g: 0.06672831, b: 0.0216263, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
