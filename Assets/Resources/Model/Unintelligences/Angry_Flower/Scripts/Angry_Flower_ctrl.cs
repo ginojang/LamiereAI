@@ -26,7 +26,7 @@ public class Angry_Flower_ctrl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		/*
 		
 		if (Input.GetKey("2")) //battle_idle
 		{
@@ -99,7 +99,7 @@ public class Angry_Flower_ctrl : MonoBehaviour {
 		transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
 		controller.Move(moveDirection * Time.deltaTime);
 		moveDirection.y -= gravity * Time.deltaTime;
-		
+		*/
 	}
 }
 
