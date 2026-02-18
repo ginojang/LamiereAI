@@ -1,9 +1,7 @@
 using UnityEngine;
 using System;
-using StarterAssets;
 
-
-#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
+#if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
 
