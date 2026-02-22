@@ -13,7 +13,7 @@ public class MyCharacterCore : MonoBehaviour
     [SerializeField] GameObject[] _characterPrefabs;
     [SerializeField] DataManager.eCHARACTER_TYPE[] _characterTypes;
 
-    [SerializeField] DataManager.eCHARACTER_TYPE c_type = DataManager.eCHARACTER_TYPE.BOY_04;
+    [SerializeField] DataManager.eCHARACTER_TYPE c_type = DataManager.eCHARACTER_TYPE.BOY_02;
     [SerializeField] DataManager.eCHARACTER_FATNESS fatness = DataManager.eCHARACTER_FATNESS.MIDDLE_SLIM;
     [SerializeField] DataManager.eCHARACTER_SKINCOLLOR skin_color = DataManager.eCHARACTER_SKINCOLLOR._color_skin7;
 
@@ -112,9 +112,9 @@ public class MyCharacterCore : MonoBehaviour
 
 
     // ✅ Rebind 기반으로 아바타 교체 안정화
-    public void CreateMyCharacter(DataManager.eCHARACTER_TYPE charType)
+    public void CreateMyCharacter()
     {
-        var avatarGO = PrefabInstantiate(charType);
+        var avatarGO = PrefabInstantiate(GetCharacterType());
         if (avatarGO == null) return;
 
         var geometry = playerArmature.transform.Find("Geometry");
@@ -151,9 +151,12 @@ public class MyCharacterCore : MonoBehaviour
         // 3) 즉시 1프레임 갱신(첫 프레임 T-pose/정지 방지)
         targetAnimator.Update(0f);
 
+
+        SetSkinColor(skin_color);
+
         Debug.Log(">> Player Avatar Swapped (Rebind) >>>>>>>>>>>>>>>>>");
 
         //
-        c_type = charType;
+        //c_type = charType;
     }
 }
