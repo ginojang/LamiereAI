@@ -6,20 +6,22 @@ public class MyCharacterCore : MonoBehaviour
 {
     public static MyCharacterCore Instance = null;
 
-    GameObject _characterPrefab = null;
-
-    [SerializeField] GameObject playerArmature;
+    GameObject _mortalPrefab = null;
 
     [SerializeField] GameObject[] _characterPrefabs;
     [SerializeField] DataManager.eCHARACTER_TYPE[] _characterTypes;
 
-    [SerializeField] DataManager.eCHARACTER_TYPE c_type = DataManager.eCHARACTER_TYPE.BOY_02;
+    [SerializeField] DataManager.eCHARACTER_TYPE c_type = DataManager.eCHARACTER_TYPE.MIN_HO;
     [SerializeField] DataManager.eCHARACTER_FATNESS fatness = DataManager.eCHARACTER_FATNESS.MIDDLE_SLIM;
     [SerializeField] DataManager.eCHARACTER_SKINCOLLOR skin_color = DataManager.eCHARACTER_SKINCOLLOR._color_skin7;
 
     Dictionary<DataManager.eCHARACTER_TYPE, GameObject> dicCharacterPrefabs;
 
     public DataManager.eCHARACTER_TYPE GetCharacterType() => c_type;
+
+    
+    [SerializeField] private MortalPrefab.Mode initialMode = MortalPrefab.Mode.Normal;
+
 
     public GameObject GetAvatarPrefab(DataManager.eCHARACTER_TYPE c_type)
     {
@@ -33,31 +35,44 @@ public class MyCharacterCore : MonoBehaviour
         Instance = this;
 
         dicCharacterPrefabs = new Dictionary<DataManager.eCHARACTER_TYPE, GameObject>();
+
+        if (_characterTypes == null || _characterPrefabs == null || _characterTypes.Length != _characterPrefabs.Length)
+        {
+            Debug.LogError("[MyCharacterCore] _characterTypes / _characterPrefabs length mismatch or null.");
+            return;
+        }
+
         for (int i = 0; i < _characterTypes.Length; i++)
+        {
+            if (_characterPrefabs[i] == null)
+            {
+                Debug.LogError($"[MyCharacterCore] Prefab is null at index {i} (type={_characterTypes[i]}).");
+                continue;
+            }
+
             dicCharacterPrefabs[_characterTypes[i]] = _characterPrefabs[i];
+        }
     }
 
-    public void RestorePositionZero()
+
+    public void RestoreLocalZero()
     {
-        if (_characterPrefab == null) return;
-
-        _characterPrefab.transform.parent = gameObject.transform;
-        _characterPrefab.transform.position = gameObject.transform.position;
-        _characterPrefab.transform.rotation = Quaternion.identity;
+        if (_mortalPrefab == null) return;
+        _mortalPrefab.transform.localPosition = Vector3.zero;
+        _mortalPrefab.transform.localRotation = Quaternion.identity;
     }
+
 
     public GameObject PrefabInstantiate(DataManager.eCHARACTER_TYPE type)
     {
-        if (c_type == type && _characterPrefab != null)
-        {
-            _characterPrefab.transform.parent = gameObject.transform;
-            _characterPrefab.transform.position = Vector3.zero;
-            _characterPrefab.transform.rotation = Quaternion.identity;
-            return _characterPrefab;
-        }
+        if (c_type == type && _mortalPrefab != null)
+            return _mortalPrefab;
 
-        if (_characterPrefab)
-            Destroy(_characterPrefab);
+        if (_mortalPrefab != null)
+        {
+            Destroy(_mortalPrefab);
+            _mortalPrefab = null;
+        }
 
         c_type = type;
 
@@ -68,15 +83,19 @@ public class MyCharacterCore : MonoBehaviour
             return null;
         }
 
-        _characterPrefab = Instantiate(prefab);
-        _characterPrefab.transform.parent = gameObject.transform;
+        _mortalPrefab = Instantiate(prefab);
+        _mortalPrefab.transform.SetParent(transform, false);
+        _mortalPrefab.transform.localPosition = Vector3.zero;
+        _mortalPrefab.transform.localRotation = Quaternion.identity;
 
-        return _characterPrefab;
+        return _mortalPrefab;
     }
+
+
 
     public void SetFatness(DataManager.eCHARACTER_FATNESS fat)
     {
-        if (_characterPrefab == null) return;
+        if (_mortalPrefab == null) return;
 
         float scale = 1.0f;
         fatness = fat;
@@ -97,66 +116,164 @@ public class MyCharacterCore : MonoBehaviour
                 break;
         }
 
-        _characterPrefab.transform.localScale = new Vector3(scale, 1, scale);
+        _mortalPrefab.transform.localScale = new Vector3(scale, 1, scale);
     }
 
     public void SetSkinColor(DataManager.eCHARACTER_SKINCOLLOR skin)
     {
-        if (_characterPrefab == null) return;
-
+        if (_mortalPrefab == null) return;
+        
         skin_color = skin;
-        _characterPrefab.GetComponent<CharacterPrefab>().SetSkinColor(skin_color);
+        _mortalPrefab.GetComponent<MortalPrefab>().SetSkinColor(skin_color);
     }
 
 
-
-
-    // ✅ Rebind 기반으로 아바타 교체 안정화
     public void CreateMyCharacter()
     {
-        var avatarGO = PrefabInstantiate(GetCharacterType());
-        if (avatarGO == null) return;
+        var armature = gameObject.transform.Find("Armature");
+        if (armature == null)
+        {
+            Debug.LogError("[MyCharacterCore] Armature not found under MyCharactor.");
+            return;
+        }
 
-        var geometry = playerArmature.transform.Find("Geometry");
+        // 결과가 _mortalPrefab 에 세팅 된다.
+        if (PrefabInstantiate(GetCharacterType()) == null)
+            return;
+
+        var geometry = armature.transform.Find("Geometry");
         if (geometry == null)
         {
             Debug.LogError("[MyCharacterCore] Geometry not found under playerArmature.");
             return;
         }
 
-        avatarGO.transform.SetParent(geometry, false);
-        avatarGO.transform.localPosition = Vector3.zero;
+        _mortalPrefab.transform.SetParent(geometry, false);
+        _mortalPrefab.transform.localPosition = Vector3.zero;
+        _mortalPrefab.transform.localRotation = Quaternion.identity;
 
-        var targetAnimator = playerArmature.GetComponent<Animator>();
-        var sourceAnimator = avatarGO.GetComponent<Animator>();
-
-        if (targetAnimator == null || sourceAnimator == null)
+        var targetAnimator = armature.GetComponent<Animator>();
+        if (targetAnimator == null)
         {
-            Debug.LogError("[MyCharacterCore] Animator missing on playerArmature or avatar prefab.");
+            Debug.LogError("[MyCharacterCore] targetAnimator missing on Armature.");
             return;
         }
 
-        if (sourceAnimator.avatar == null)
+        var mortal = _mortalPrefab.GetComponent<MortalPrefab>();
+        if (mortal == null)
         {
-            Debug.LogError("[MyCharacterCore] Source avatar animator has no humanoid Avatar assigned.");
+            Debug.LogError("[MyCharacterCore] MortalPrefab missing on avatar prefab.");
             return;
         }
 
-        // 1) Avatar 교체
-        targetAnimator.avatar = sourceAnimator.avatar;
+        // 시작 모드 세팅 + 스왑 적용
+        ApplyMortalMode(targetAnimator, mortal, initialMode);
 
-        // 2) 정석: 바인딩/상태 재초기화
-        targetAnimator.Rebind();
-
-        // 3) 즉시 1프레임 갱신(첫 프레임 T-pose/정지 방지)
-        targetAnimator.Update(0f);
-
-
+        // 외형 파라미터 재적용
         SetSkinColor(skin_color);
+        SetFatness(fatness);
+
+
+        // InputController 세팅  -> 추후  ThirdPerson, StartAssetsInput, WowPcInputsBridge 통합한   전용 InpuntController 작업 필요.
+        //   그녀석에게 지금 이 Component 알려준다.
+
+        WowPcInputsBridge InputBridge = armature.GetComponent<WowPcInputsBridge>();
+        InputBridge.SetParentCharacterCore(this);
+
 
         Debug.Log(">> Player Avatar Swapped (Rebind) >>>>>>>>>>>>>>>>>");
+    }
 
-        //
-        //c_type = charType;
+    public bool ApplyMortalMode(Animator targetAnimator, MortalPrefab mortal, MortalPrefab.Mode mode)
+    {
+        if (targetAnimator == null || mortal == null) return false;
+
+        if (!mortal.SetMode(mode, applyActive: true))
+            return false;
+
+        var sourceAnimator = mortal.GetCurrentAnimator();
+        if (sourceAnimator == null)
+        {
+            Debug.LogError("[MyCharacterCore] sourceAnimator is null after mode switch.");
+            return false;
+        }
+
+        if (sourceAnimator.avatar == null || sourceAnimator.runtimeAnimatorController == null)
+        {
+            Debug.LogError("[MyCharacterCore] Source Animator missing Avatar or Controller.");
+            return false;
+        }
+
+        // (선택) 토글로 꼬임 방지
+        bool prevEnabled = targetAnimator.enabled;
+        targetAnimator.enabled = false;
+
+        targetAnimator.runtimeAnimatorController = sourceAnimator.runtimeAnimatorController;
+        targetAnimator.avatar = sourceAnimator.avatar;
+
+        targetAnimator.enabled = prevEnabled;
+
+        targetAnimator.Rebind();
+        targetAnimator.Update(0f);
+
+        return true;
+    }
+
+
+    // 외부에서 모드 변경 호출용
+    public void SetCombatMode(bool isCombat)
+    {
+        if (_mortalPrefab == null) return;
+
+        var armature = gameObject.transform.Find("Armature");
+        if (armature == null) return;
+
+        var targetAnimator = armature.GetComponent<Animator>();
+        if (targetAnimator == null) return;
+
+        var mortal = _mortalPrefab.GetComponent<MortalPrefab>();
+        if (mortal == null) return;
+
+        var mode = isCombat ? MortalPrefab.Mode.Combat : MortalPrefab.Mode.Normal;
+        if (ApplyMortalMode(targetAnimator, mortal, mode))
+        {
+            // 모드 바뀔 때 재적용 필요한 것들
+            SetSkinColor(skin_color);
+            SetFatness(fatness);
+        }
+    }
+
+    public void ToggleCombatMode()
+    {
+        if (_mortalPrefab == null)
+            return;
+
+        var armature = transform.Find("Armature");
+        if (armature == null)
+            return;
+
+        var targetAnimator = armature.GetComponent<Animator>();
+        if (targetAnimator == null)
+            return;
+
+        var mortal = _mortalPrefab.GetComponent<MortalPrefab>();
+        if (mortal == null)
+            return;
+
+        // 현재 모드 확인
+        var currentMode = mortal.CurrentMode;
+
+        MortalPrefab.Mode nextMode =
+            currentMode == MortalPrefab.Mode.Combat
+            ? MortalPrefab.Mode.Normal
+            : MortalPrefab.Mode.Combat;
+
+        if (ApplyMortalMode(targetAnimator, mortal, nextMode))
+        {
+            SetSkinColor(skin_color);
+            SetFatness(fatness);
+
+            Debug.Log($"[MyCharacterCore] Mode Toggled → {nextMode}");
+        }
     }
 }

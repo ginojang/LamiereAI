@@ -210,17 +210,9 @@ public class DataManager : MonoBehaviour
     public enum eCHARACTER_TYPE
     {
         NONE = 0,
-        /*
-        GIRL_00,
-        GIRL_01,
-        GIRL_02,
-        GIRL_03,*/
-        BOY_00 = 1,
-        BOY_01 = 2,
-        BOY_02 = 3,
-        BOY_04 = 4,
 
-        MOMO = 100,
+        MIN_HO = 1,
+        
     }
 
     public enum eCHARACTER_FATNESS
@@ -274,7 +266,7 @@ public class DataManager : MonoBehaviour
             //current_scene = eSCENE_TYPE.NONE;
 
             // 
-            char_type = eCHARACTER_TYPE.BOY_04;
+            char_type = eCHARACTER_TYPE.MIN_HO;
             char_fatness = eCHARACTER_FATNESS.NONE;         // 캐릭터 프리팹 디폴트
             char_skincolor = eCHARACTER_SKINCOLLOR.NONE;    // 캐릭터 프리팹 디폴트
             select_rotate = new Vector3(0.0f, 30.0f, 0.0f);

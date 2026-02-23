@@ -3,24 +3,48 @@ using UnityEngine;
 [RequireComponent(typeof(StarterAssetsInputs))]
 public class WowPcInputsBridge : MonoBehaviour
 {
-    [Header("Refs")]
-    public StarterAssetsInputs inputs;
-    public ThirdPersonController controller; // optional (to toggle isUseCameraAngle)
+    [SerializeField]
+    public MyCharacterCore parentCharacterCore;
+
+
+    StarterAssetsInputs inputs;
+    ThirdPersonController controller; // optional (to toggle isUseCameraAngle)
 
     [Header("WoW-like Settings")]
     public float turnSpeedDegPerSec = 180f;   // A/D 회전 속도
     public float mouseSensitivity = 1.0f;     // 마우스 감도 (StarterAssets look delta)
     public bool holdRightMouseToLook = true;  // 우클릭 드래그 시 회전
 
-    void Reset()
+
+    public void SetParentCharacterCore(MyCharacterCore parentCore)
+    {
+        parentCharacterCore = parentCore;
+    }
+
+
+    void Start()
     {
         inputs = GetComponent<StarterAssetsInputs>();
         controller = GetComponent<ThirdPersonController>();
     }
 
+    [SerializeField] private float toggleCooldown = 0.2f;
+    private float _lastToggleTime = -999f;
+
+
     void Update()
     {
         if (!inputs) return;
+
+        if (Input.GetKeyDown(KeyCode.C) && parentCharacterCore != null)
+        {
+            if (Time.time - _lastToggleTime >= toggleCooldown)
+            {
+                _lastToggleTime = Time.time;
+                parentCharacterCore.ToggleCombatMode();
+            }
+        }
+
 
         // =========================
         // 1) 기본 이동 (W/S 전후)

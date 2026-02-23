@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{E25804E1-751C-87D6-9698-80FAA83E3974}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -67,26 +66,44 @@
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\BasicRigidBodyPush.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\StarterAssetsInputs.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\PrefabSelector.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Player\ActionGenerator.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\NPCManager.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvas\UIVirtualTouchZone.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Transform\MovementController.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\DataManager.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Camera\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Player\PlayerAction.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\ChangeMaterials.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\WowPcInputsBridge.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Demo\Locamotion\Locomove.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\MaterialSwitcher.cs" />
-    <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\MortalCore.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Camera\FreeCameraController.cs" />
+    <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\MortalPrefab.cs" />
     <Compile Include="Assets\3rd-Party\ProCore\QuickBrush\InSceneClasses\qb_Object.cs" />
+    <Compile Include="Assets\Hard Slashes Vol1\Demo Scene\DemoManager.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\EnemyMove.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvas\UIVirtualJoystick.cs" />
+    <Compile Include="Assets\Hovl Studio\HSFiles\Scripts\For demo scenes\HS_CameraHolder.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Transform\Compass.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvas\UICanvasControllerInput.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\BaseSceneEnvrionment.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\IDamageable.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\ThirdPersonController.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\CharacterPrefab.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\SimpleAttack.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\Enemy.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvas\UIVirtualButton.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Player\CharacterMovement.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Transform\NoisyShakeMovement.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\WeaponChanger.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\MyCharacterCore.cs" />
+    <Compile Include="Assets\Hard Slashes Vol1\SelfDestruct.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\Source Demos\FreeCamera.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\CombatState.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\LivingEntity.cs" />
+    <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Player\EnemyTagetting.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Lights\LightTilt.cs" />
     <Compile Include="Assets\ASTROFISH_GAMES\MEDIEVAL_SERIES\DETAILED_MCastle\_Assets\Resources\Common\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\MaterialSwitcherByTexture.cs" />
@@ -104,10 +121,13 @@
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Props Snow.shader" />
     <None Include="Assets\3rd-Party\NatureManufacture Assets\Object Shaders\NM_Layered.shader" />
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\Lava\shader\Lava_URP.shader" />
+    <None Include="Assets\Hovl Studio\HSFiles\Shaders\DissolveNoise.shader" />
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\TopBottomParallax.shader" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterCommon.hlsl" />
     <None Include="Assets\3rd-Party\NatureManufacture Assets\Foliage Shaders\NM_Foliage_VSPro_Indirect.cginc" />
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Tree Leaf.shader" />
+    <None Include="Assets\HoleSaw RPG Animation Pack\Documentation\HoleSaw RPG Animation Pack.txt" />
+    <None Include="Assets\Hovl Studio\HSFiles\Shaders\Distortion.shader" />
     <None Include="Assets\_DLNK\Stronghold Village\Stronghold Village Pack.txt" />
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\FrozenTundra\Shaders_URP\Snow_Coverage_URP.shader" />
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Tree Bark Snow.shader" />
@@ -117,6 +137,7 @@
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Tree Leaf Snow.shader" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterVariables.hlsl" />
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\SimpleTessellation.shader" />
+    <None Include="Assets\Hovl Studio\HSFiles\Shaders\Lightning.shader" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterDynamic.hlsl" />
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\Nature\LeavesAnim.shader" />
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\SimpleParallax.shader" />
@@ -126,6 +147,8 @@
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterWave.hlsl" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterHelpers.hlsl" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterLighting.hlsl" />
+    <None Include="Assets\Hovl Studio\HSFiles\Shaders\BlendDistort.shader" />
+    <None Include="Assets\Hovl Studio\HSFiles\Shaders\Scroll.shader" />
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\Special\TransShadow.shader" />
     <None Include="Assets\3rd-Party\NatureManufacture Assets\Foliage Shaders\NM_Cross.shader" />
     <None Include="Assets\3rd-Party\NatureManufacture Assets\Object Shaders\NM_Lit_Top_Cover.shader" />
