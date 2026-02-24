@@ -8383,6 +8383,10 @@ MonoBehaviour:
   fatness: 2
   skin_color: 4
   initialMode: 0
+  NormalAttackTriggerNames:
+  - NormalAttack_2
+  - NormalAttack_3
+  - NormalAttack_1
 --- !u!4 &259785974
 Transform:
   m_ObjectHideFlags: 0
@@ -10745,6 +10749,7 @@ MonoBehaviour:
   turnSpeedDegPerSec: 180
   mouseSensitivity: 12
   holdRightMouseToLook: 0
+  toggleCooldown: 0.2
 --- !u!114 &337448560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27221,12 +27226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294dfcb46f4b68d42ac156f276df77a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkinParts:
-  - {fileID: 775474772}
-  - {fileID: 1198783660}
-  - {fileID: 2090091440}
-  SkinPartMaterialIndex: 000000000000000000000000
   skinColor: 1
+  skinTargets: []
+  socketRightHand: {fileID: 0}
+  socketLeftHand: {fileID: 0}
+  socketBack: {fileID: 0}
 --- !u!95 &797950170
 Animator:
   serializedVersion: 7
@@ -60029,61 +60033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885ee55da6f0076498bc26c123a63c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 2
-  SprintSpeed: 5.335
-  SpeedChangeRate: 10
-  RotationSmoothTime: 0.12
-  Grounded: 1
-  JumpHeight: 1.2
-  Gravity: -15
-  JumpTimeout: 0.5
-  FallTimeout: 0.15
-  GroundedOffset: -0.14
-  GroundedRadius: 0.28
-  GroundLayers:
-    m_Bits: 1
-  LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
-  FootstepAudioClips:
-  - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
-  - {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
-  - {fileID: 8300000, guid: 186de84b3207156479abe98f4958fed0, type: 3}
-  - {fileID: 8300000, guid: 1a91fcd19acf1e54bba0945d9f390849, type: 3}
-  - {fileID: 8300000, guid: 14e8a8d2158bec840b56c54f5266e692, type: 3}
-  - {fileID: 8300000, guid: 29841e7d5bbfb5b419c9ad16ca8bc4c1, type: 3}
-  - {fileID: 8300000, guid: dd1af302b8902684d9381de1f2d3a5af, type: 3}
-  - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
-  - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
-  - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
-  FootstepAudioVolume: 0.5
-  _targetRotation: 0
-  _speed: 0
-  _isJump: 0
-  _verticalVelocity: 0
-  _animationBlend: 0
-  _jumpTimeoutDelta: 0
-  _fallTimeoutDelta: 0
-  _terminalVelocity: 53
-  _controller: {fileID: 0}
-  _animator: {fileID: 0}
-  _hasAnimator: 0
-  _animIDSpeed: 0
-  _animIDGrounded: 0
-  _animIDJump: 0
-  _animIDFreeFall: 0
-  _animIDMotionSpeed: 0
-  _rotationVelocity: 0
-  pingTime: 0
-  serverTime: 0
-  npcData:
-    index: 0
-    npcName: 
-    position: {x: 0, y: 0, z: 0}
-    euler: {x: 0, y: 0, z: 0}
-    characterType: 0
-    curDialogCondition: 0
-    headStatus: 0
-  headMarkQuestion: {fileID: 984090500}
-  headMarkExclamation: {fileID: 1322088767}
 --- !u!114 &1709969042
 MonoBehaviour:
   m_ObjectHideFlags: 0

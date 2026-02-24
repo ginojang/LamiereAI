@@ -45,6 +45,16 @@ public class WowPcInputsBridge : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1) && parentCharacterCore != null)
+        {
+            if (Time.time - _lastToggleTime >= toggleCooldown)
+            {
+                _lastToggleTime = Time.time;
+                parentCharacterCore.SetTriggerNormalAttack();
+            }
+        }
+
+
 
         // =========================
         // 1) 기본 이동 (W/S 전후)

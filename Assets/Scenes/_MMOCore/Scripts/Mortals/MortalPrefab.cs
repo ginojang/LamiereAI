@@ -12,6 +12,10 @@ public class MortalPrefab : MonoBehaviour
         // ...
     }
 
+    [SerializeField] public GameObject mainWeapon;
+
+
+
     [Serializable]
     public class Variant
     {
@@ -97,10 +101,34 @@ public class MortalPrefab : MonoBehaviour
     {
         if(_current != null)
         {
-            _current.root.GetComponent<CharacterPrefab>().SetSkinColor(skin);
+            _current.root.GetComponent<BaseTBone>().ApplySkinColor(skin);
         }
 
     }
+
+    public void SetWeapon()
+    {
+        if (mainWeapon != null && _current != null)
+            _current.root.GetComponent<BaseTBone>().AttachToSocket(mainWeapon, BaseTBone.SocketKind.Back);
+    }
+
+
+
+    public void OnBackArmedAnimationStart()
+    {
+        if (mainWeapon == null || _current == null)
+            return;
+
+        if (_current.mode != Mode.Combat)
+            return;
+
+        // 우선 주인공 하드 코딩 -> 추후 몬스터나 NPC로 확장하면 - 리펙토링 해야 됨.
+        _current.root.GetComponent<BaseTBone>().AttachToSocket(mainWeapon, BaseTBone.SocketKind.RightHand);
+
+
+        Debug.Log($"[MortalPrefab] OnBackArmedStart  → ");
+    }
+
 
 
 #if UNITY_EDITOR

@@ -23,6 +23,27 @@ public class MyCharacterCore : MonoBehaviour
     [SerializeField] private MortalPrefab.Mode initialMode = MortalPrefab.Mode.Normal;
 
 
+    [SerializeField] private string[] NormalAttackTriggerNames;
+    private int[] _normalAttackTriggerHashes;
+
+
+    Transform armature;
+    Animator targetAnimator;
+    MortalPrefab mortal;
+
+
+    private void CacheAttackTriggers()
+    {
+        if (NormalAttackTriggerNames == null) return;
+
+        _normalAttackTriggerHashes = new int[NormalAttackTriggerNames.Length];
+        for (int i = 0; i < NormalAttackTriggerNames.Length; i++)
+        {
+            _normalAttackTriggerHashes[i] = Animator.StringToHash(NormalAttackTriggerNames[i]);
+        }
+    }
+
+
     public GameObject GetAvatarPrefab(DataManager.eCHARACTER_TYPE c_type)
     {
         if (dicCharacterPrefabs.ContainsKey(c_type))
@@ -127,10 +148,20 @@ public class MyCharacterCore : MonoBehaviour
         _mortalPrefab.GetComponent<MortalPrefab>().SetSkinColor(skin_color);
     }
 
+    public void SetWeapon()
+    {
+        if (_mortalPrefab == null) return;
+        _mortalPrefab.GetComponent<MortalPrefab>().SetWeapon();
+    }
 
+
+
+
+    /// //////////////////////////////////////////////////////////////////////////////////////////////////
+    // 반드시 호출되어야 할 시작... 함수.
     public void CreateMyCharacter()
     {
-        var armature = gameObject.transform.Find("Armature");
+        armature = gameObject.transform.Find("Armature");
         if (armature == null)
         {
             Debug.LogError("[MyCharacterCore] Armature not found under MyCharactor.");
@@ -152,14 +183,14 @@ public class MyCharacterCore : MonoBehaviour
         _mortalPrefab.transform.localPosition = Vector3.zero;
         _mortalPrefab.transform.localRotation = Quaternion.identity;
 
-        var targetAnimator = armature.GetComponent<Animator>();
+        targetAnimator = armature.GetComponent<Animator>();
         if (targetAnimator == null)
         {
             Debug.LogError("[MyCharacterCore] targetAnimator missing on Armature.");
             return;
         }
 
-        var mortal = _mortalPrefab.GetComponent<MortalPrefab>();
+        mortal = _mortalPrefab.GetComponent<MortalPrefab>();
         if (mortal == null)
         {
             Debug.LogError("[MyCharacterCore] MortalPrefab missing on avatar prefab.");
@@ -172,7 +203,10 @@ public class MyCharacterCore : MonoBehaviour
         // 외형 파라미터 재적용
         SetSkinColor(skin_color);
         SetFatness(fatness);
+        SetWeapon();
 
+        //
+        CacheAttackTriggers();
 
         // InputController 세팅  -> 추후  ThirdPerson, StartAssetsInput, WowPcInputsBridge 통합한   전용 InpuntController 작업 필요.
         //   그녀석에게 지금 이 Component 알려준다.
@@ -180,6 +214,8 @@ public class MyCharacterCore : MonoBehaviour
         WowPcInputsBridge InputBridge = armature.GetComponent<WowPcInputsBridge>();
         InputBridge.SetParentCharacterCore(this);
 
+
+   
 
         Debug.Log(">> Player Avatar Swapped (Rebind) >>>>>>>>>>>>>>>>>");
     }
@@ -219,20 +255,17 @@ public class MyCharacterCore : MonoBehaviour
         return true;
     }
 
+    private bool IsReady()
+    {
+        return _mortalPrefab != null && armature != null && targetAnimator != null && mortal != null;
+    }
+
+
 
     // 외부에서 모드 변경 호출용
     public void SetCombatMode(bool isCombat)
     {
-        if (_mortalPrefab == null) return;
-
-        var armature = gameObject.transform.Find("Armature");
-        if (armature == null) return;
-
-        var targetAnimator = armature.GetComponent<Animator>();
-        if (targetAnimator == null) return;
-
-        var mortal = _mortalPrefab.GetComponent<MortalPrefab>();
-        if (mortal == null) return;
+        if (!IsReady()) return;
 
         var mode = isCombat ? MortalPrefab.Mode.Combat : MortalPrefab.Mode.Normal;
         if (ApplyMortalMode(targetAnimator, mortal, mode))
@@ -240,25 +273,13 @@ public class MyCharacterCore : MonoBehaviour
             // 모드 바뀔 때 재적용 필요한 것들
             SetSkinColor(skin_color);
             SetFatness(fatness);
+            SetWeapon();
         }
     }
 
     public void ToggleCombatMode()
     {
-        if (_mortalPrefab == null)
-            return;
-
-        var armature = transform.Find("Armature");
-        if (armature == null)
-            return;
-
-        var targetAnimator = armature.GetComponent<Animator>();
-        if (targetAnimator == null)
-            return;
-
-        var mortal = _mortalPrefab.GetComponent<MortalPrefab>();
-        if (mortal == null)
-            return;
+        if (!IsReady()) return;
 
         // 현재 모드 확인
         var currentMode = mortal.CurrentMode;
@@ -272,8 +293,36 @@ public class MyCharacterCore : MonoBehaviour
         {
             SetSkinColor(skin_color);
             SetFatness(fatness);
+            SetWeapon();
 
             Debug.Log($"[MyCharacterCore] Mode Toggled → {nextMode}");
         }
+    }
+
+
+
+    private int _comboIndex = 0;
+    public void SetTriggerNormalAttack()
+    {
+        if (!IsReady()) return;
+        if (mortal.CurrentMode != MortalPrefab.Mode.Combat) return;
+        if (_normalAttackTriggerHashes == null || _normalAttackTriggerHashes.Length == 0) return;
+
+        
+        targetAnimator.SetTrigger(_normalAttackTriggerHashes[_comboIndex]);
+        _comboIndex++;
+        if (_comboIndex >= _normalAttackTriggerHashes.Length)
+            _comboIndex = 0;
+
+    }
+
+
+
+    // 애니메이션 Behaviour API 함수
+    public void OnBackArmedAnimationStart()
+    {
+        if (!IsReady()) return;
+
+        mortal.OnBackArmedAnimationStart();
     }
 }
