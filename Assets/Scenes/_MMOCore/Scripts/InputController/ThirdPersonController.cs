@@ -226,6 +226,11 @@ public class ThirdPersonController : MonoBehaviour
     public float GetTargetPitch() { return _cinemachineTargetPitch; }
 
 
+    public void SetStop()
+    {
+        _animator.SetFloat(_animIDSpeed, 0.0f);
+    }
+
 
     float prev_rotate = 0f;
     float prev_speed = 0f;

@@ -8387,6 +8387,8 @@ MonoBehaviour:
   - NormalAttack_2
   - NormalAttack_3
   - NormalAttack_1
+  attackStateTag: Attack
+  comboResetDelay: 1
 --- !u!4 &259785974
 Transform:
   m_ObjectHideFlags: 0
@@ -10749,7 +10751,6 @@ MonoBehaviour:
   turnSpeedDegPerSec: 180
   mouseSensitivity: 12
   holdRightMouseToLook: 0
-  toggleCooldown: 0.2
 --- !u!114 &337448560
 MonoBehaviour:
   m_ObjectHideFlags: 0

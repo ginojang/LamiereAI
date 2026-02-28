@@ -26,30 +26,18 @@ public class MyCharacterCore : MonoBehaviour
     [SerializeField] private string[] NormalAttackTriggerNames;
     private int[] _normalAttackTriggerHashes;
 
+    // ===== Normal Attack Queue Settings =====
+    [SerializeField] private string attackStateTag = "Attack";   // 공격 상태에 Tag로 지정
+    [SerializeField] private float comboResetDelay = 0.8f;        // 이 시간 이상 공격 끊기면 콤보 0으로 리셋
+
+    private float _lastAttackTime = -999f;
+
 
     Transform armature;
     Animator targetAnimator;
     MortalPrefab mortal;
 
 
-    private void CacheAttackTriggers()
-    {
-        if (NormalAttackTriggerNames == null) return;
-
-        _normalAttackTriggerHashes = new int[NormalAttackTriggerNames.Length];
-        for (int i = 0; i < NormalAttackTriggerNames.Length; i++)
-        {
-            _normalAttackTriggerHashes[i] = Animator.StringToHash(NormalAttackTriggerNames[i]);
-        }
-    }
-
-
-    public GameObject GetAvatarPrefab(DataManager.eCHARACTER_TYPE c_type)
-    {
-        if (dicCharacterPrefabs.ContainsKey(c_type))
-            return dicCharacterPrefabs[c_type];
-        return null;
-    }
 
     private void Awake()
     {
@@ -75,6 +63,45 @@ public class MyCharacterCore : MonoBehaviour
         }
     }
 
+
+    private bool _wasAttacking = false;
+    private void Update()
+    {
+        if (!IsReady()) return;
+
+        bool attacking = IsAttackingNow();
+
+        // ✅ 공격이 "끝난" 순간
+        if (_wasAttacking && !attacking)
+        {
+            _lastAttackTime = Time.time;
+            // Debug.Log($"Attack End -> _lastAttackTime = {_lastAttackTime}");
+        }
+
+        _wasAttacking = attacking;
+    }
+
+
+
+
+    private void CacheAttackTriggers()
+    {
+        if (NormalAttackTriggerNames == null) return;
+
+        _normalAttackTriggerHashes = new int[NormalAttackTriggerNames.Length];
+        for (int i = 0; i < NormalAttackTriggerNames.Length; i++)
+        {
+            _normalAttackTriggerHashes[i] = Animator.StringToHash(NormalAttackTriggerNames[i]);
+        }
+    }
+
+
+    public GameObject GetAvatarPrefab(DataManager.eCHARACTER_TYPE c_type)
+    {
+        if (dicCharacterPrefabs.ContainsKey(c_type))
+            return dicCharacterPrefabs[c_type];
+        return null;
+    }
 
     public void RestoreLocalZero()
     {
@@ -260,7 +287,7 @@ public class MyCharacterCore : MonoBehaviour
         return _mortalPrefab != null && armature != null && targetAnimator != null && mortal != null;
     }
 
-
+    #region  모드 변경 -  본 변경
 
     // 외부에서 모드 변경 호출용
     public void SetCombatMode(bool isCombat)
@@ -298,31 +325,127 @@ public class MyCharacterCore : MonoBehaviour
             Debug.Log($"[MyCharacterCore] Mode Toggled → {nextMode}");
         }
     }
+    #endregion
 
 
-
+    #region  전투 관련
     private int _comboIndex = 0;
-    public void SetTriggerNormalAttack()
+    [SerializeField, Range(0f, 1f)] private float firstAttackVariantBChance = 0.5f;
+
+    // 0타(첫타) 변형 인덱스: 0 또는 1
+    private int _firstAttackVariantIndex = 0; // 0 or 1
+
+
+    public bool IsAttackingNow()
+    {
+        // Transition 중엔 Next도 체크하는 게 안정적
+        var cur = targetAnimator.GetCurrentAnimatorStateInfo(0);
+        if (cur.IsTag(attackStateTag)) return true;
+
+        if (targetAnimator.IsInTransition(0))
+        {
+            var next = targetAnimator.GetNextAnimatorStateInfo(0);
+            if (next.IsTag(attackStateTag)) return true;
+        }
+
+        return false;
+    }
+
+    private void DecideFirstAttackVariantIfNeeded()
+    {
+        // 콤보 사이클 시작(= 0타 들어갈 때) 1번만 결정
+        if (_comboIndex != 0) return;
+
+        _firstAttackVariantIndex = (Random.value < firstAttackVariantBChance) ? 1 : 0;
+    }
+
+
+    private void SetNormalAttackTrigger()
+    {
+        if (_comboIndex == 0)
+        {
+            // 여기서 50퍼센트 확률로  0, 1 둘중 하나로 하자.
+            DecideFirstAttackVariantIfNeeded();
+            targetAnimator.SetTrigger(_normalAttackTriggerHashes[_firstAttackVariantIndex]); // 0 or 1
+        }
+        else
+        {
+            // 2타(피니시)는 묵직한 고정 (예: index 2)
+            targetAnimator.SetTrigger(_normalAttackTriggerHashes[2]);
+        }
+    }
+    private void FireNextComboAttack()
+    {
+        SetNormalAttackTrigger();
+
+        // 콤보 진행/리셋
+        if (Time.time - _lastAttackTime < comboResetDelay)
+        {
+            _comboIndex++;
+            if (_comboIndex >= 2) _comboIndex = 0; // 0->1->0 (2연타 사이클)
+        }
+        else
+        {
+            _comboIndex = 0;
+            // 리셋된 상태에서 바로 다음 입력이 들어오면 첫타 변형이 다시 뽑히게 됨
+        }
+
+        _lastAttackTime = Time.time;
+    }
+
+
+    public void RequestNormalAttack()
     {
         if (!IsReady()) return;
         if (mortal.CurrentMode != MortalPrefab.Mode.Combat) return;
         if (_normalAttackTriggerHashes == null || _normalAttackTriggerHashes.Length == 0) return;
 
-        
-        targetAnimator.SetTrigger(_normalAttackTriggerHashes[_comboIndex]);
-        _comboIndex++;
-        if (_comboIndex >= _normalAttackTriggerHashes.Length)
-            _comboIndex = 0;
-
+        // 공격 중이 아니면 즉시 발사
+        if (!IsAttackingNow())
+        {
+            FireNextComboAttack();
+            return;
+        }
     }
 
+    #endregion
 
 
-    // 애니메이션 Behaviour API 함수
+
+    #region 애니메이션 Behaviour API 함수
+
     public void OnBackArmedAnimationStart()
     {
         if (!IsReady()) return;
-
         mortal.OnBackArmedAnimationStart();
     }
+
+
+    public void OnNormalAttackEnter(int animIndex)
+    {
+        if (!IsReady()) return;
+        mortal.OnNormalAttackEnter(animIndex, armature);
+    }
+    public void OnSwordSlashStart(int animIndex)
+    {
+        if (!IsReady()) return;
+        mortal.OnSwordSlashStart(animIndex, armature);
+    }
+    public void OnSwordSlashHit(int animIndex)
+    {
+        if (!IsReady()) return;
+        mortal.OnSwordSlashHit(animIndex, armature);
+    }
+    public void OnSwordSlashEnd(int animIndex)
+    {
+        if (!IsReady()) return;
+        mortal.OnSwordSlashEnd(animIndex, armature);
+    }
+    public void OnNormalAttackExit(int animIndex)
+    {
+        if (!IsReady()) return;
+        mortal.OnNormalAttackExit(animIndex, armature);
+    }
+
+    #endregion
 }

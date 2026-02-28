@@ -20,7 +20,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWarn>0169;USG0001</NoWarn>
-    <DefineConstants>UNITY_6000_3_7;UNITY_6000_3;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;UNITY_6000_1_OR_NEWER;UNITY_6000_2_OR_NEWER;UNITY_6000_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_AUDIO_SCRIPTABLE_PIPELINE;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_UNITY_CONSENT;ENABLE_UNITY_CLOUD_IDENTIFIERS;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_ACCESSIBILITY_SCREEN_READER;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_AMD;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLOUD_SERVICES_ENGINE_DIAGNOSTICS;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;TEXTCORE_FONT_ENGINE_1_6_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_6000_3_7;UNITY_6000_3;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;UNITY_6000_1_OR_NEWER;UNITY_6000_2_OR_NEWER;UNITY_6000_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_AUDIO_SCRIPTABLE_PIPELINE;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_UNITY_CONSENT;ENABLE_UNITY_CLOUD_IDENTIFIERS;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_ACCESSIBILITY_SCREEN_READER;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_AMD;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLOUD_SERVICES_ENGINE_DIAGNOSTICS;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;TEXTCORE_FONT_ENGINE_1_6_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -61,29 +61,35 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.7f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\_MortalManager\Characters\Animations\2HandSword\_Behaviour\BehaviourNormalAttack2.cs" />
     <Compile Include="Assets\Resources\Model\Unintelligences\Angry_Flower\Scripts\Angry_Flower_ctrl.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\ControllerPrefab.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\BasicRigidBodyPush.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\StarterAssetsInputs.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\PrefabSelector.cs" />
+    <Compile Include="Assets\SineVFX\TopDownEffects\Resources\Scripts\PrefabSpawner.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Player\ActionGenerator.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\NPCManager.cs" />
+    <Compile Include="Assets\Scenes\_MortalManager\Characters\Animations\2HandSword\_Behaviour\BehaviourNormalAttack3.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\Minho\MinhoBattleBone.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvas\UIVirtualTouchZone.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Transform\MovementController.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\DataManager.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Camera\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\Scenes\_MortalManager\Characters\Animations\2HandSword\_Behaviour\BehaviourNormalAttack1.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Player\PlayerAction.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\ChangeMaterials.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\WowPcInputsBridge.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Demo\Locamotion\Locomove.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\MaterialSwitcher.cs" />
+    <Compile Include="Assets\SineVFX\TopDownEffects\Resources\Scripts\SineCameraControllerTopDownEffects.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Camera\FreeCameraController.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\MortalPrefab.cs" />
     <Compile Include="Assets\3rd-Party\ProCore\QuickBrush\InSceneClasses\qb_Object.cs" />
     <Compile Include="Assets\Hard Slashes Vol1\Demo Scene\DemoManager.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\EnemyMove.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvas\UIVirtualJoystick.cs" />
+    <Compile Include="Assets\SineVFX\TopDownEffects\Resources\Scripts\RampGeneratorTDE.cs" />
     <Compile Include="Assets\Hovl Studio\HSFiles\Scripts\For demo scenes\HS_CameraHolder.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\BaseTBone.cs" />
@@ -91,6 +97,7 @@
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvas\UICanvasControllerInput.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\BaseSceneEnvrionment.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\IDamageable.cs" />
+    <Compile Include="Assets\SineVFX\TopDownEffects\Resources\Scripts\SineUIControllerTopDownEffects.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\ThirdPersonController.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\SimpleAttack.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\PlayerManager.cs" />
@@ -137,6 +144,8 @@
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterFoam.hlsl" />
     <None Include="Assets\Resources\Dependencies\Shader\OldShader\CTI_LOD_Billboard.shader" />
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Tree Leaf Snow.shader" />
+    <None Include="Assets\SineVFX\TopDownEffects\_Documentation\!!!_BetterDocumentationOnline_!!!.txt" />
+    <None Include="Assets\SineVFX\TopDownEffects\_Packages\!!!_ReadBeforeImport_!!!.txt" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterVariables.hlsl" />
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\SimpleTessellation.shader" />
     <None Include="Assets\Hovl Studio\HSFiles\Shaders\Lightning.shader" />
@@ -145,10 +154,13 @@
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\SimpleParallax.shader" />
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Grass.shader" />
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Tree Bark.shader" />
+    <None Include="Assets\SineVFX\TopDownEffects\Resources\Environment\EnvShaders\SkyboxProceduralDesaturatedTDE.shader" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterScattering.hlsl" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterWave.hlsl" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterHelpers.hlsl" />
+    <None Include="Assets\SineVFX\TopDownEffects\_Documentation\02.MaterialParameters.txt" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterLighting.hlsl" />
+    <None Include="Assets\SineVFX\TopDownEffects\_Documentation\03.Customization.txt" />
     <None Include="Assets\Hovl Studio\HSFiles\Shaders\BlendDistort.shader" />
     <None Include="Assets\Hovl Studio\HSFiles\Shaders\Scroll.shader" />
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\Special\TransShadow.shader" />
@@ -156,12 +168,15 @@
     <None Include="Assets\3rd-Party\NatureManufacture Assets\Object Shaders\NM_Lit_Top_Cover.shader" />
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\Nature\WaterSimple.shader" />
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Detail Props Snow.shader" />
+    <None Include="Assets\SineVFX\TopDownEffects\_Documentation\01.QuickStart.txt" />
     <None Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Shader Library]\[ASE Shaders]\Nature\WaterRunning.shader" />
+    <None Include="Assets\SineVFX\TopDownEffects\_Documentation\04.CustomVertexStreams.txt" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterReflections.hlsl" />
     <None Include="Assets\3rd-Party\NatureManufacture Assets\Foliage Shaders\NM_Foliage.shader" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterNormals.hlsl" />
     <None Include="Assets\3rd-Party\NatureManufacture Assets\Object Shaders\NM_Object_VSPro_Indirect.cginc" />
     <None Include="Assets\3rd-Party\URPWater\Shaders\HLSL\Includes\URPWaterAlpha.hlsl" />
+    <None Include="Assets\SineVFX\TopDownEffects\_Packages\DemoSceneNewControlFix\NewInputSystemPatchFix.txt" />
     <None Include="Assets\Misc\Model\SceneModel\MapObject\cp\ANGRY MESH\Nature Pack - Common\Shaders\Unity URP\Props Snow Alpha.shader" />
     <None Include="Assets\Shaders\CustomFunctions\Lighting_Function.hlsl" />
   </ItemGroup>
@@ -1234,6 +1249,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1404,6 +1423,10 @@
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">

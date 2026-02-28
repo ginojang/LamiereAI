@@ -113,21 +113,46 @@ public class MortalPrefab : MonoBehaviour
     }
 
 
+    #region 애니메이션 Behaviour API 함수
+
+    private bool IsReady()
+    {
+        return mainWeapon != null && _current != null && _current.mode == Mode.Combat;
+    }
 
     public void OnBackArmedAnimationStart()
     {
-        if (mainWeapon == null || _current == null)
-            return;
-
-        if (_current.mode != Mode.Combat)
-            return;
-
+        if(!IsReady())  return;
+        
         // 우선 주인공 하드 코딩 -> 추후 몬스터나 NPC로 확장하면 - 리펙토링 해야 됨.
         _current.root.GetComponent<BaseTBone>().AttachToSocket(mainWeapon, BaseTBone.SocketKind.RightHand);
 
-
         Debug.Log($"[MortalPrefab] OnBackArmedStart  → ");
     }
+
+    public void OnNormalAttackEnter(int animIndex, Transform tranform)
+    {
+
+        Debug.Log($"[MortalPrefab] OnNormalAttackEnter  →  {animIndex} ");
+    }
+    public void OnSwordSlashStart(int animIndex, Transform tranform)
+    {
+        _current.root.GetComponent<MinhoBattleBone>().OnSwordSlashStart(animIndex);
+    }
+    public void OnSwordSlashHit(int animIndex, Transform tranform)
+    {
+        Debug.Log($"[MortalPrefab] OnSwordSlashHit  →  {animIndex} ");
+    }
+    public void OnSwordSlashEnd(int animIndex, Transform tranform)
+    {
+        Debug.Log($"[MortalPrefab] OnSwordSlashEnd  →  {animIndex} ");
+    }
+    public void OnNormalAttackExit(int animIndex, Transform tranform)
+    {
+        _current.root.GetComponent<MinhoBattleBone>().OnNormalAttackExit(animIndex);
+    }
+
+    #endregion
 
 
 

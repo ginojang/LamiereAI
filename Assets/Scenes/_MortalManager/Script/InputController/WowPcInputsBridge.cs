@@ -28,8 +28,10 @@ public class WowPcInputsBridge : MonoBehaviour
         controller = GetComponent<ThirdPersonController>();
     }
 
-    [SerializeField] private float toggleCooldown = 0.2f;
+    private float toggleCooldown = 1.0f;
+    private float attackCooldown = 0.1f;
     private float _lastToggleTime = -999f;
+
 
 
     void Update()
@@ -41,60 +43,83 @@ public class WowPcInputsBridge : MonoBehaviour
             if (Time.time - _lastToggleTime >= toggleCooldown)
             {
                 _lastToggleTime = Time.time;
+                controller.SetStop();  // 이동 중이라면 멈추게 한다.
+                inputs.MoveInput(Vector2.zero);
+
                 parentCharacterCore.ToggleCombatMode();
+                return;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && parentCharacterCore != null)
         {
-            if (Time.time - _lastToggleTime >= toggleCooldown)
+            if (Time.time - _lastToggleTime >= attackCooldown)
             {
                 _lastToggleTime = Time.time;
-                parentCharacterCore.SetTriggerNormalAttack();
+                controller.SetStop(); // 이동 중이라면 멈추게 한다.
+                inputs.MoveInput(Vector2.zero);
+
+                parentCharacterCore.RequestNormalAttack();
+                return;
             }
         }
 
+
+        // 전투 모드 변경시에는 이동 금지.
+        //if (parentCharacterCore.IsModeTogglingNow() == false)
+        if (Time.time - _lastToggleTime < toggleCooldown)
+        {
+            return;
+        }
 
 
         // =========================
         // 1) 기본 이동 (W/S 전후)
         // =========================
-        float forward = 0f;
-        if (Input.GetKey(KeyCode.W)) forward += 1f;
-        if (Input.GetKey(KeyCode.S)) forward -= 1f;
-
-        // =========================
-        // 2) 평행이동 (Q/E 좌우)
-        // =========================
-        float strafe = 0f;
-        if (Input.GetKey(KeyCode.E)) strafe += 1f;
-        if (Input.GetKey(KeyCode.Q)) strafe -= 1f;
-
-        // StarterAssetsInputs.move: (x=좌우, y=전후)
-        Vector2 move = new Vector2(strafe, forward);
-        move = Vector2.ClampMagnitude(move, 1f);
-        inputs.MoveInput(move);
-
-        // =========================
-        // 3) 점프 (Space) - 누른 프레임만
-        // =========================
-        inputs.JumpInput(Input.GetKeyDown(KeyCode.Space));
-
-        // (선택) 스프린트: Shift (WoW 기본은 NumLock 자동달리기/토글도 있지만 일단 Shift)
-        //inputs.SprintInput(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
-
-        // =========================
-        // 4) A/D: 좌/우 회전 (키보드 턴)
-        // =========================
-        float turn = 0f;
-        if (Input.GetKey(KeyCode.D)) turn += 1f;
-        if (Input.GetKey(KeyCode.A)) turn -= 1f;
-
-        if (Mathf.Abs(turn) > 0.001f)
+        if (parentCharacterCore.IsAttackingNow() == false)
         {
-            float yaw = turn * turnSpeedDegPerSec * Time.deltaTime;
-            transform.Rotate(0f, yaw, 0f, Space.World);
+            float forward = 0f;
+            if (Input.GetKey(KeyCode.W)) forward += 1f;
+            if (Input.GetKey(KeyCode.S)) forward -= 1f;
+
+            // =========================
+            // 2) 평행이동 (Q/E 좌우)
+            // =========================
+            float strafe = 0f;
+            if (Input.GetKey(KeyCode.D)) strafe += 1f;
+            if (Input.GetKey(KeyCode.A)) strafe -= 1f;
+
+            // StarterAssetsInputs.move: (x=좌우, y=전후)
+            Vector2 move = new Vector2(strafe, forward);
+            move = Vector2.ClampMagnitude(move, 1f);
+            inputs.MoveInput(move);
+
+            // =========================
+            // 3) 점프 (Space) - 누른 프레임만
+            // =========================
+            inputs.JumpInput(Input.GetKeyDown(KeyCode.Space));
+
+
+            // (선택) 스프린트: Shift (WoW 기본은 NumLock 자동달리기/토글도 있지만 일단 Shift)
+            //inputs.SprintInput(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+
+            // =========================
+            // 4) A/D: 좌/우 회전 (키보드 턴)
+            // =========================
+            float turn = 0f;
+            if (Input.GetKey(KeyCode.Q)) turn += 1f;
+            if (Input.GetKey(KeyCode.E)) turn -= 1f;
+
+            if (Mathf.Abs(turn) > 0.001f)
+            {
+                float yaw = turn * turnSpeedDegPerSec * Time.deltaTime;
+                transform.Rotate(0f, yaw, 0f, Space.World);
+            }
+
         }
+
+
+
 
         // =========================
         // 5) 마우스 우클릭 드래그:
