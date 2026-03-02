@@ -78,6 +78,7 @@
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Camera\ThirdPersonCamera.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Characters\Animations\2HandSword\_Behaviour\BehaviourNormalAttack1.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Player\PlayerAction.cs" />
+    <Compile Include="Assets\Scenes\_MMOCore\Scripts\BattleSystem\PlayerBattler.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\ChangeMaterials.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\WowPcInputsBridge.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Demo\Locamotion\Locomove.cs" />
@@ -85,9 +86,11 @@
     <Compile Include="Assets\SineVFX\TopDownEffects\Resources\Scripts\SineCameraControllerTopDownEffects.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Camera\FreeCameraController.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\MortalPrefab.cs" />
+    <Compile Include="Assets\Scenes\_MMOCore\Scripts\BattleSystem\BattlerBase.cs" />
     <Compile Include="Assets\3rd-Party\ProCore\QuickBrush\InSceneClasses\qb_Object.cs" />
     <Compile Include="Assets\Hard Slashes Vol1\Demo Scene\DemoManager.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\EnemyMove.cs" />
+    <Compile Include="Assets\Scenes\_MMOCore\Scripts\BattleSystem\CombatResolver.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvas\UIVirtualJoystick.cs" />
     <Compile Include="Assets\SineVFX\TopDownEffects\Resources\Scripts\RampGeneratorTDE.cs" />
     <Compile Include="Assets\Hovl Studio\HSFiles\Scripts\For demo scenes\HS_CameraHolder.cs" />
@@ -100,7 +103,9 @@
     <Compile Include="Assets\SineVFX\TopDownEffects\Resources\Scripts\SineUIControllerTopDownEffects.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\ThirdPersonController.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\SimpleAttack.cs" />
+    <Compile Include="Assets\Scenes\_MMOCore\Scripts\BattleSystem\BattleSystem.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\Scenes\_MMOCore\Scripts\BattleSystem\MonsterBattler.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Game\Enemy.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\UICanvas\UIVirtualButton.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Player\CharacterMovement.cs" />
@@ -117,6 +122,7 @@
     <Compile Include="Assets\ASTROFISH_GAMES\MEDIEVAL_SERIES\DETAILED_MCastle\_Assets\Resources\Common\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\MaterialSwitcherByTexture.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Lights\ScaleInLightmapSetter.cs" />
+    <Compile Include="Assets\Scenes\_MMOCore\Scripts\BattleSystem\CombatTickDriver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd-Party\NatureManufacture Assets\L.V.E- Lava and Volcano Environment\Shaders\NM Lava River Flowmap Mobile.shader" />
