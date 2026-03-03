@@ -21,7 +21,7 @@ public abstract class BattlerBase : MonoBehaviour, IBattler
     public float Hp01 => stats.hp01;
     public float AttackRange => stats.attackRange;
     public float AttackCd => stats.attackCd;
-    public Transform Transform => transform;
+    public virtual Transform CombatTransform => transform;
 
     public virtual void ApplyDamage01(float dmg01)
     {
@@ -44,7 +44,7 @@ public interface IBattler
     float AttackCd { get; }      // seconds
     float LastAttackTime { get; set; }
 
-    UnityEngine.Transform Transform { get; }
+    UnityEngine.Transform CombatTransform { get; }
 
     void ApplyDamage01(float dmg01); // 정규화 데미지
 }

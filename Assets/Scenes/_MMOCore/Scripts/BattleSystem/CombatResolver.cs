@@ -11,7 +11,7 @@ public class CombatResolver
         if (nowTime - attacker.LastAttackTime < attacker.AttackCd) return;
 
         // 거리
-        float dist = Vector3.Distance(attacker.Transform.position, target.Transform.position);
+        float dist = Vector3.Distance(attacker.CombatTransform.position, target.CombatTransform.position);
         if (dist > attacker.AttackRange) return;
 
         // 공격 성립

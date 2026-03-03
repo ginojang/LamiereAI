@@ -1230,7 +1230,6 @@ GameObject:
   - component: {fileID: 424302}
   - component: {fileID: 9531042}
   - component: {fileID: 14323048}
-  - component: {fileID: 11400712}
   m_Layer: 0
   m_Name: Angry_Flower_young
   m_TagString: Untagged
@@ -1303,22 +1302,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.65, z: 0}
---- !u!114 &11400712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad214a6b5a2a914d956d4e36ecd277a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  runSpeed: 1.7
-  turnSpeed: 85
-  gravity: 20
 --- !u!1 &196904
 GameObject:
   m_ObjectHideFlags: 0

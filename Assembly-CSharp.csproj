@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scenes\_MortalManager\Characters\Animations\2HandSword\_Behaviour\BehaviourNormalAttack2.cs" />
-    <Compile Include="Assets\Resources\Model\Unintelligences\Angry_Flower\Scripts\Angry_Flower_ctrl.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\Mortals\ControllerPrefab.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\BasicRigidBodyPush.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\InputController\StarterAssetsInputs.cs" />
@@ -79,6 +78,7 @@
     <Compile Include="Assets\Scenes\_MortalManager\Characters\Animations\2HandSword\_Behaviour\BehaviourNormalAttack1.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Assets\Scripts\Player\PlayerAction.cs" />
     <Compile Include="Assets\Scenes\_MMOCore\Scripts\BattleSystem\PlayerBattler.cs" />
+    <Compile Include="Assets\Scenes\_MMOCore\Scripts\BattleSystem\PlantMonsterFSM.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\_DLNK Libraries\[dlnk Script Library]\Basic Scripts\Misc\ChangeMaterials.cs" />
     <Compile Include="Assets\Scenes\_MortalManager\Script\InputController\WowPcInputsBridge.cs" />
     <Compile Include="Assets\HoleSaw RPG Animation Pack\Demo\Locamotion\Locomove.cs" />
