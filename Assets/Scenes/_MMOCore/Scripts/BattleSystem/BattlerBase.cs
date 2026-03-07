@@ -29,8 +29,9 @@ public abstract class BattlerBase : MonoBehaviour, IBattler
         stats.hp01 = Mathf.Clamp01(stats.hp01 - Mathf.Max(0f, dmg01));
         if (!IsAlive)
         {
+
             // TODO: 죽음 애니/콜라이더 off 등
-            // Debug.Log($"{name} died");
+            Debug.Log($">>>>>>>>>>>  {name} died");
         }
     }
 

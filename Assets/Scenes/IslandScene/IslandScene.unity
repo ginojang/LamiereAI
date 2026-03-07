@@ -21485,14 +21485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad214a6b5a2a914d956d4e36ecd277a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  controller: {fileID: 0}
-  battle_state: 0
-  speed: 0
-  runSpeed: 1.7
-  turnSpeed: 85
-  gravity: 20
-  moveDirection: {x: 0, y: 0, z: 0}
 --- !u!143 &619182647
 CharacterController:
   m_ObjectHideFlags: 0
@@ -37891,14 +37883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad214a6b5a2a914d956d4e36ecd277a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  controller: {fileID: 0}
-  battle_state: 0
-  speed: 0
-  runSpeed: 1.7
-  turnSpeed: 85
-  gravity: 20
-  moveDirection: {x: 0, y: 0, z: 0}
 --- !u!143 &1124486824
 CharacterController:
   m_ObjectHideFlags: 0
@@ -62944,14 +62928,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad214a6b5a2a914d956d4e36ecd277a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  controller: {fileID: 0}
-  battle_state: 0
-  speed: 0
-  runSpeed: 1.7
-  turnSpeed: 85
-  gravity: 20
-  moveDirection: {x: 0, y: 0, z: 0}
 --- !u!143 &1817666806
 CharacterController:
   m_ObjectHideFlags: 0
@@ -101448,14 +101424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad214a6b5a2a914d956d4e36ecd277a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  controller: {fileID: 0}
-  battle_state: 0
-  speed: 0
-  runSpeed: 1.7
-  turnSpeed: 85
-  gravity: 20
-  moveDirection: {x: 0, y: 0, z: 0}
 --- !u!4 &709059872515818247
 Transform:
   m_ObjectHideFlags: 0
@@ -144974,14 +144942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad214a6b5a2a914d956d4e36ecd277a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  controller: {fileID: 0}
-  battle_state: 0
-  speed: 0
-  runSpeed: 1.7
-  turnSpeed: 85
-  gravity: 20
-  moveDirection: {x: 0, y: 0, z: 0}
 --- !u!137 &1891118017263506593
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -438811,6 +438771,10 @@ PrefabInstance:
     - target: {fileID: 3765430633911710123, guid: 081f939089a04d24a8c11e2c44399762, type: 3}
       propertyPath: m_Name
       value: Angry_Flower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243060484450973130, guid: 081f939089a04d24a8c11e2c44399762, type: 3}
+      propertyPath: minSeparation
+      value: 1.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
